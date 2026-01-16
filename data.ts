@@ -1,0 +1,400 @@
+import { TeamMember, PlaybookStep, StrategyItem, Course, FinancialRecord, Task, PaymentLink } from './types';
+
+export const TEAM_MEMBERS: TeamMember[] = [
+  {
+    id: 'faina',
+    name: 'פאינה',
+    roleTitle: 'Director of Growth & Operations (COO)',
+    type: 'COO',
+    focus: 'מנוע הכנסות + תפעול + P&L Owner',
+    responsibilities: [
+      'שיחות עם לידים (B2C + B2B)',
+      'עבודה מול ארגונים',
+      'גבייה, חוזים, תשלומים',
+      'ניהול לו״ז קורסים',
+      'ניהול P&L חודשי',
+    ],
+    kpis: [
+      'מספר קורסים שנפתחו בפועל',
+      'אחוז סגירה מלידים',
+      'רווח חודשי (שורה תחתונה)',
+      'אחוז תפוסה בכיתות',
+    ],
+    backup: 'רוסלן (החלטות חריגות)',
+    color: 'bg-purple-100 text-purple-800 border-purple-200',
+    phone: '',
+    email: ''
+  },
+  {
+    id: 'katya',
+    name: 'קטיה',
+    roleTitle: 'Head of Marketing & Community (CMO)',
+    type: 'CMO',
+    focus: 'נראות, תוכן, קהילה, חווית לקוח',
+    responsibilities: [
+      'ניהול קהילות וסושיאל',
+      'תוכן שיווקי ועמודי נחיתה',
+      'שיווק אורגני',
+      'חוויית לקוח (Customer Experience)',
+    ],
+    kpis: [
+      'גידול בקהילות',
+      'מעורבות (Engagement)',
+      'לידים אורגניים',
+      'אחוז המשך לקורסים מתקדמים',
+      'שביעות רצון (NPS)',
+    ],
+    backup: 'ארינה (ערך מקצועי)',
+    color: 'bg-pink-100 text-pink-800 border-pink-200',
+    phone: '',
+    email: ''
+  },
+  {
+    id: 'arina',
+    name: 'ארינה',
+    roleTitle: 'Head of Product & Training (CPO)',
+    type: 'CPO',
+    focus: 'המוח המקצועי + איכות מוצר',
+    responsibilities: [
+      'בניית תכנים וסילבוסים',
+      'סטנדרט מקצועי',
+      'העברת קורסים',
+      'תמיכה מקצועית במכירות מורכבות',
+    ],
+    kpis: [
+      'שביעות רצון סטודנטים',
+      'אחוז סיום קורס',
+      'אחוז המלצות',
+      'ביקוש לקורסי המשך',
+    ],
+    backup: 'קטיה (תפעול שוטף)',
+    color: 'bg-blue-100 text-blue-800 border-blue-200',
+    phone: '',
+    email: ''
+  },
+  {
+    id: 'ruslan',
+    name: 'רוסלן',
+    roleTitle: 'Founder / CEO',
+    type: 'CEO',
+    focus: 'חזון, כסף גדול, קשרים אסטרטגיים',
+    responsibilities: [
+      'חשיפות לקהלים והרצאות',
+      'פגישות אסטרטגיות עם ארגונים',
+      'פיננסים ברמת מאקרו',
+      'פתיחת שווקים חדשים',
+    ],
+    kpis: [
+      'רווחיות כוללת',
+      'שיתופי פעולה אסטרטגיים',
+      'כניסה לשווקים חדשים',
+      'בניית מוניטין מוסדי',
+    ],
+    backup: 'פאינה (תפעול שוטף)',
+    color: 'bg-slate-100 text-slate-800 border-slate-200',
+    phone: '',
+    email: ''
+  },
+];
+
+export const PLAYBOOK_STEPS: PlaybookStep[] = [
+  {
+    step: 1,
+    title: 'החלטה (Go/No-Go)',
+    owner: 'פאינה',
+    actions: [
+      'בדיקת היתכנות כלכלית',
+      'קביעת תאריך יעד',
+      'שיריון כיתה ומרצה',
+    ],
+    exitCriteria: 'תאריך סגור + אישור תקציב שיווק',
+  },
+  {
+    step: 2,
+    title: 'שיווק (Marketing)',
+    owner: 'קטיה',
+    actions: [
+      'העלאת קמפיין ממומן/אורגני',
+      'דיוור לקהילות',
+      'וובינר חשיפה (אופציונלי)',
+    ],
+    exitCriteria: 'מינימום 50 לידים חמים',
+  },
+  {
+    step: 3,
+    title: 'מכירה (Sales)',
+    owner: 'פאינה',
+    actions: [
+      'שיחות מכירה טלפוניות',
+      'גבייה מלאה/מקדמה',
+      'חתימה על תקנון',
+    ],
+    exitCriteria: 'מינימום 12 נרשמים משלמים',
+  },
+  {
+    step: 4,
+    title: 'ביצוע (Delivery)',
+    owner: 'ארינה',
+    actions: [
+      'העברת 5 מפגשים',
+      'בדיקת נוכחות',
+      'משוב אמצע',
+    ],
+    exitCriteria: 'סיום קורס עם 90% שביעות רצון',
+  },
+  {
+    step: 5,
+    title: 'סגירה והמשך (Closing)',
+    owner: 'קטיה & פאינה',
+    actions: [
+      'תעודות סיום',
+      'הצטרפות לקהילת הבוגרים',
+      'מכירת קורס המשך (Upsell)',
+    ],
+    exitCriteria: '20% נרשמים לקורס הבא',
+  },
+];
+
+export const STRATEGY_PILLARS: StrategyItem[] = [
+  {
+    title: 'מוצר עוגן (Anchor)',
+    description: 'קורס AI למתחילים - פרונטלי. כל השאר הם נגזרות.',
+    iconName: 'Anchor',
+  },
+  {
+    title: 'מזומן לפני הכל (Cash First)',
+    description: '6 חודשים ראשונים לולידציה ורווח תפעולי. סקייל יגיע אחר כך.',
+    iconName: 'DollarSign',
+  },
+  {
+    title: 'פרונטלי כיתרון',
+    description: 'לא מתחרים בזום זול. מוכרים חוויה, קשר אישי ופרקטיקה.',
+    iconName: 'Users',
+  },
+  {
+    title: 'קהילה כנכס',
+    description: 'כל קורס מסתיים בכניסה לקהילה. משם מגיע השיווק האורגני.',
+    iconName: 'HeartHandshake',
+  },
+];
+
+export const MOCK_COURSES: Course[] = [
+  {
+    id: 'exp-2026',
+    name: 'חשיפה לעסקים קטנים בינה מלאכותית',
+    status: 'Marketing',
+    registrants: 0,
+    maxCapacity: 50,
+    revenue: 0,
+    owner: 'פאינה',
+    startDate: '2026-01-18',
+    durationWeeks: 1,
+    studentColumns: [],
+    students: []
+  },
+  {
+    id: '1008',
+    name: 'בינה מלאכותית - 1008 (זום)',
+    status: 'Planning',
+    registrants: 0,
+    maxCapacity: 20,
+    revenue: 0,
+    owner: 'ארינה',
+    startDate: '2026-01-30',
+    durationWeeks: 4,
+    studentColumns: [],
+    students: []
+  },
+  {
+    id: '1007',
+    name: 'בינה מלאכותית - 1007 (גמלאים ב)',
+    status: 'Planning',
+    registrants: 3,
+    maxCapacity: 15,
+    revenue: 0,
+    owner: 'קטיה',
+    startDate: '2026-03-01', 
+    durationWeeks: 4,
+    studentColumns: ['ID', 'Payment', 'Notes'],
+    students: [
+      { id: '1007-1', name: 'יעל סיפר', phone: '0542251865', amountPaid: 0, notes: 'רוצה לשלם שתחזור מחו"ל 18.02', customData: {} },
+      { id: '1007-2', name: 'זאב (בן זוג של יעל)', phone: '0542251865', amountPaid: 0, notes: 'רוצה לשלם שתחזור מחו"ל 18.02', customData: {} },
+      { id: '1007-3', name: 'אסתר', phone: '0507320843', amountPaid: 0, notes: 'רוצה לחשוב', customData: {} },
+    ]
+  },
+  {
+    id: '1006',
+    name: 'בינה מלאכותית - 1006 (תנופה)',
+    status: 'Marketing',
+    registrants: 10,
+    maxCapacity: 20,
+    revenue: 4130,
+    owner: 'פאינה',
+    startDate: '2026-02-04',
+    durationWeeks: 4,
+    studentColumns: ['ID', 'Payment', 'Subsidy'],
+    students: [
+      { id: '1006-1', name: 'שני יפרח', phone: '050-9844914', amountPaid: 590, notes: 'תשלום אחד אשראי', customData: { 'ID': '318322476', 'Subsidy': '200' } },
+      { id: '1006-2', name: 'אורית פיסיהה', phone: '526130729', amountPaid: 590, notes: '2 תשלומים אשראי', customData: { 'ID': '309731545', 'Subsidy': '200' } },
+      { id: '1006-3', name: 'שרונה יונה', phone: '529461215', amountPaid: 590, notes: 'כרטיס אשראי תשלום אחד', customData: { 'ID': '32262560', 'Subsidy': '200' } },
+      { id: '1006-4', name: 'אביאל אלמו', phone: '555028271', amountPaid: 590, notes: 'שילם באשראי 2 תשלומים', customData: { 'ID': '206087264', 'Subsidy': '200' } },
+      { id: '1006-5', name: 'נטלי בן-הרוש', phone: '584966227', amountPaid: 590, notes: 'שילמה באשראי תשלום אחד', customData: { 'ID': '34400150', 'Subsidy': '200' } },
+      { id: '1006-6', name: 'ציון פינחסוב', phone: '0508144680', amountPaid: 590, notes: 'תשלום אחד אשראי', customData: { 'ID': '312703911', 'Subsidy': '200' } },
+      { id: '1006-7', name: 'בתאל צנעני', phone: '0528114030', amountPaid: 590, notes: 'משלמת בתאריך 15.01.26', customData: { 'ID': '200987352', 'Subsidy': '200' } },
+      { id: '1006-8', name: 'לורן שבתאי', phone: '0528374278', amountPaid: 0, notes: 'רוצה לחשוב', customData: {} },
+      { id: '1006-9', name: 'איתמר כהן', phone: '0502223139', amountPaid: 0, notes: 'ביום שישי שיחה עם מרצה', customData: {} },
+      { id: '1006-10', name: 'עינב זבתני', phone: '0503266336', amountPaid: 0, notes: '', customData: {} },
+    ]
+  },
+  {
+    id: '1005',
+    name: 'בינה מלאכותית - 1005 (גמלאים א)',
+    status: 'Marketing',
+    registrants: 16,
+    maxCapacity: 20,
+    revenue: 8260,
+    owner: 'קטיה',
+    startDate: '2026-01-25',
+    durationWeeks: 4,
+    studentColumns: ['ID', 'Email'],
+    students: [
+      { id: '1005-1', name: 'ליובוב גרבובסקי', phone: '547440543', amountPaid: 590, notes: 'ש\'ק', customData: { 'ID': '307121798' } },
+      { id: '1005-2', name: 'מאיה פורטנוי', phone: '545411323', amountPaid: 590, notes: 'שולם באשראי ב 2 תשלומים', customData: { 'ID': '307791442', 'Email': 'mayaport10@gmail.com' } },
+      { id: '1005-3', name: 'איליה פורטנוי', phone: '', amountPaid: 590, notes: '', customData: {} },
+      { id: '1005-4', name: 'כרמל ישראלי', phone: '508802069', amountPaid: 590, notes: 'אשראי', customData: { 'ID': '50358670' } },
+      { id: '1005-5', name: 'סימה לייפסקר', phone: '547290553', amountPaid: 590, notes: 'אשראי ב 2 תשלומים', customData: { 'ID': '308673623' } },
+      { id: '1005-6', name: 'יוסי צורף', phone: '525797186', amountPaid: 590, notes: '', customData: { 'ID': '68783067', 'Email': 'Josiz@walla.co.il' } },
+      { id: '1005-7', name: 'לאה מלבנץ מגן', phone: '546823741', amountPaid: 590, notes: 'אשראי תשלום אחד', customData: { 'ID': '306128562' } },
+      { id: '1005-8', name: 'טובה רויף', phone: '0549548862', amountPaid: 0, notes: 'לא משלמת', customData: { 'ID': '64584857' } },
+      { id: '1005-9', name: 'שמואל רויף', phone: '', amountPaid: 0, notes: 'לא משלמת', customData: { 'ID': '68367101' } },
+      { id: '1005-10', name: 'חני מוסקל', phone: '507221604', amountPaid: 590, notes: 'אשראי תשלום אחד', customData: { 'ID': '16644213' } },
+      { id: '1005-11', name: 'מתוקה ורסנו', phone: '502163247', amountPaid: 590, notes: 'אשראי תשלום אחד', customData: { 'ID': '63824874' } },
+      { id: '1005-12', name: 'רחמים ורסנו', phone: '502164511', amountPaid: 590, notes: 'שני תשלומים אשראי', customData: { 'ID': '10747921' } },
+      { id: '1005-13', name: 'ז\'נה ויינברג', phone: '528087795', amountPaid: 590, notes: 'שילמה באשראי', customData: { 'ID': '304127244' } },
+      { id: '1005-14', name: 'אילנה אלקסלסי', phone: '507238080', amountPaid: 590, notes: 'שילמה באשראי שני תשלומים', customData: { 'ID': '65409039' } },
+      { id: '1005-15', name: 'שלום אלקסלסי', phone: '537447019', amountPaid: 590, notes: 'שילמה באשראי שני תשלומים', customData: { 'ID': '62920434' } },
+      { id: '1005-16', name: 'אתי כהן', phone: '544885339', amountPaid: 590, notes: 'שילמה באשראי שני תשלומים', customData: { 'ID': '26807123' } },
+    ]
+  },
+  {
+    id: '1004',
+    name: 'בינה מלאכותית - 1004 (זום רוסית)',
+    status: 'Active',
+    registrants: 7,
+    maxCapacity: 20,
+    revenue: 6089,
+    owner: 'ארינה',
+    startDate: '2025-12-26',
+    durationWeeks: 4,
+    studentColumns: [],
+    students: [
+      { id: '1004-1', name: 'אילנה', phone: '0528080143', amountPaid: 890, notes: '', customData: {} },
+      { id: '1004-2', name: 'אלבינה', phone: '0545307915', amountPaid: 749, notes: 'עדיין לא שילמה, צריך לחייב', customData: {} },
+      { id: '1004-3', name: 'אדוארד', phone: '0512781155', amountPaid: 890, notes: '', customData: {} },
+      { id: '1004-4', name: 'לודמילה', phone: '0546445979', amountPaid: 890, notes: '', customData: {} },
+      { id: '1004-5', name: 'נטלי', phone: '0546157724', amountPaid: 890, notes: '', customData: {} },
+      { id: '1004-6', name: 'ולדימיר', phone: '0543095959', amountPaid: 890, notes: '', customData: {} },
+      { id: '1004-7', name: 'סוסנה', phone: '0547773691', amountPaid: 890, notes: '', customData: {} },
+    ]
+  },
+  {
+    id: '1003',
+    name: 'בינה מלאכותית - 1003 (ק.גת)',
+    status: 'Active',
+    registrants: 15,
+    maxCapacity: 20,
+    revenue: 9660,
+    owner: 'פאינה',
+    startDate: '2025-12-24',
+    durationWeeks: 5,
+    studentColumns: ['ID', 'Payment'],
+    students: [
+      { id: '1003-1', name: 'מירב רביה', phone: '0544241429', amountPaid: 690, notes: 'שילמה באשראי', customData: {} },
+      { id: '1003-2', name: 'אינה קמינסקי', phone: '0546564145', amountPaid: 690, notes: 'שילמה באשראי', customData: {} },
+      { id: '1003-3', name: 'אלכס פלייטמן', phone: '547884456', amountPaid: 690, notes: 'שילם הכל', customData: {} },
+      { id: '1003-4', name: 'בני גל', phone: '547920182', amountPaid: 690, notes: 'שילם בתאריך 15.12.25', customData: {} },
+      { id: '1003-5', name: 'כפיר אוזן', phone: '523904287', amountPaid: 690, notes: 'שילם כרטיס', customData: {} },
+      { id: '1003-6', name: 'ולדימיר קרולינסקי', phone: '543095959', amountPaid: 690, notes: 'שילם מזומן', customData: { 'ID': '307663526' } },
+      { id: '1003-7', name: 'יוליה פיירמן', phone: '528697442', amountPaid: 690, notes: 'שילמה עם שני ש\'קים', customData: { 'ID': '304466964' } },
+      { id: '1003-8', name: 'מעיין אלמקייס', phone: '503057527', amountPaid: 690, notes: 'שולם כרטיס', customData: { 'ID': '034663336' } },
+      { id: '1003-9', name: 'ציונה טימסית', phone: '507117751', amountPaid: 690, notes: 'שולם. שני תשלומים כרטיס', customData: { 'ID': '033189143' } },
+      { id: '1003-10', name: 'אורנה יוגב', phone: '545530203', amountPaid: 690, notes: 'שילמה באשראי', customData: {} },
+      { id: '1003-11', name: 'בני יאמין', phone: '507684790', amountPaid: 690, notes: 'תשלום ביום שלישי ב08.30', customData: { 'ID': '057413551' } },
+      { id: '1003-12', name: 'אליס בוזגלו', phone: '505412505', amountPaid: 690, notes: 'שילמה מזומן', customData: { 'ID': '27844216' } },
+      { id: '1003-13', name: 'הדר דחרי', phone: '506425388', amountPaid: 690, notes: 'שילמה מזומן', customData: { 'ID': '208187419' } },
+      { id: '1003-14', name: 'משה נידם', phone: '545447182', amountPaid: 690, notes: 'שילם באשראי 2 תשלומים', customData: { 'ID': '058323098' } },
+      { id: '1003-15', name: 'גלעד בר יוסף', phone: '548635718', amountPaid: 0, notes: 'לא הגיע לשיאור ראשון', customData: {} },
+    ]
+  },
+  {
+    id: '1002',
+    name: 'בינה מלאכותית - 1002 (אשקלון)',
+    status: 'Completed',
+    registrants: 11,
+    maxCapacity: 20,
+    revenue: 7590,
+    owner: 'קטיה',
+    startDate: '2025-11-16',
+    durationWeeks: 4,
+    studentColumns: [],
+    students: [
+      { id: '1002-1', name: 'נטלי', phone: '0543339205', amountPaid: 690, notes: '', customData: {} },
+      { id: '1002-2', name: 'אלכסנדר', phone: '0547000767', amountPaid: 690, notes: '', customData: {} },
+      { id: '1002-3', name: 'אלונה', phone: '0543099998', amountPaid: 690, notes: '', customData: {} },
+      { id: '1002-4', name: 'אירינה', phone: '0546339158', amountPaid: 690, notes: '', customData: {} },
+      { id: '1002-5', name: 'סבטלנה', phone: '0552506044', amountPaid: 690, notes: '', customData: {} },
+      { id: '1002-6', name: 'אירינה', phone: '0543034070', amountPaid: 690, notes: '', customData: {} },
+      { id: '1002-7', name: 'יאנה', phone: '0528153514', amountPaid: 690, notes: '', customData: {} },
+      { id: '1002-8', name: 'אלה', phone: '0527727462', amountPaid: 690, notes: '', customData: {} },
+      { id: '1002-9', name: 'אירינה', phone: '0505976667', amountPaid: 690, notes: '', customData: {} },
+      { id: '1002-10', name: 'אינה', phone: '0524353647', amountPaid: 690, notes: '', customData: {} },
+      { id: '1002-11', name: 'נטליה', phone: '0544385937', amountPaid: 690, notes: '', customData: {} },
+    ]
+  },
+  {
+    id: '1001',
+    name: 'בינה מלאכותית - 1001 (מורות)',
+    status: 'Completed',
+    registrants: 5,
+    maxCapacity: 10,
+    revenue: 2950,
+    owner: 'ארינה',
+    startDate: '2025-11-14',
+    durationWeeks: 4,
+    studentColumns: [],
+    students: [
+      { id: '1001-1', name: 'רימה שוקורוב', phone: '', amountPaid: 590, notes: 'אשקלון', customData: {} },
+      { id: '1001-2', name: 'אלה', phone: '', amountPaid: 590, notes: 'אשקלון', customData: {} },
+      { id: '1001-3', name: 'אירינה', phone: '', amountPaid: 590, notes: 'אשקלון', customData: {} },
+      { id: '1001-4', name: 'אולגה', phone: '', amountPaid: 590, notes: 'אשקלון', customData: {} },
+      { id: '1001-5', name: 'נטלי', phone: '', amountPaid: 590, notes: 'אשקלון', customData: {} },
+    ]
+  },
+];
+
+// Initial Data sorted: 2025 months first, then 2026.
+export const INITIAL_FINANCIAL_DATA: FinancialRecord[] = [
+  { name: 'נובמבר 2025', revenue: 10540, profit: 0 },
+  { name: 'דצמבר 2025', revenue: 15749, profit: 0 },
+  { name: 'ינואר', revenue: 0, profit: 0 },
+  { name: 'פברואר', revenue: 0, profit: 0 },
+  { name: 'מרץ', revenue: 0, profit: 0 },
+  { name: 'אפריל', revenue: 0, profit: 0 },
+  { name: 'מאי', revenue: 0, profit: 0 },
+  { name: 'יוני', revenue: 0, profit: 0 },
+  { name: 'יולי', revenue: 0, profit: 0 },
+  { name: 'אוגוסט', revenue: 0, profit: 0 },
+  { name: 'ספטמבר', revenue: 0, profit: 0 },
+  { name: 'אוקטובר', revenue: 0, profit: 0 },
+];
+
+export const INITIAL_TASKS: Task[] = [
+  { id: '1', description: 'לסגור חוזה עם עיריית אשקלון', assigneeId: 'faina', status: 'Pending', priority: 'High', dueDate: '2023-10-30', assignedDate: '2023-10-01' },
+  { id: '2', description: 'להכין סילבוס לקורס מתקדמים', assigneeId: 'arina', status: 'Pending', priority: 'Medium', dueDate: '2023-11-05', assignedDate: '2023-10-15' },
+  { id: '3', description: 'קמפיין הרשמה למחזור נובמבר', assigneeId: 'katya', status: 'Done', priority: 'High', dueDate: '2023-10-15', assignedDate: '2023-09-20' },
+];
+
+export const INITIAL_PAYMENT_LINKS: PaymentLink[] = [
+    { id: '1', title: 'תשלום לקורס אשקלון (כרטיס אשראי)', url: 'https://payboxapp.page.link/...' },
+    { id: '2', title: 'מקדמה - קורס מתקדמים', url: 'https://bit.ly/...' }
+];
